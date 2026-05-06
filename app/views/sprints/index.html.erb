@@ -1,0 +1,27 @@
+<div class="flex-between">
+  <h1>Minhas Sprints</h1>
+  <%= link_to 'Nova Sprint', new_sprint_path, class: "btn btn-primary" %>
+</div>
+
+<div class="card-grid">
+  <% @sprints.each do |sprint| %>
+    <div class="card">
+      <h2 class="card-title"><%= sprint.name %></h2>
+      <div class="card-meta">
+        <%= sprint.start_date.strftime("%d/%m/%Y") %> - <%= sprint.end_date.strftime("%d/%m/%Y") %>
+      </div>
+      
+      <div class="card-actions">
+        <%= link_to 'Acessar', sprint, class: "btn btn-primary btn-small" %>
+        <%= link_to 'Editar', edit_sprint_path(sprint), class: "btn btn-secondary btn-small" %>
+        <%= button_to 'Excluir', sprint, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-danger btn-small" %>
+      </div>
+    </div>
+  <% end %>
+  
+  <% if @sprints.empty? %>
+    <p style="color: var(--text-secondary); grid-column: 1 / -1; text-align: center; padding: 2rem;">
+      Você ainda não possui nenhuma sprint cadastrada. <%= link_to 'Crie a sua primeira!', new_sprint_path %>
+    </p>
+  <% end %>
+</div>

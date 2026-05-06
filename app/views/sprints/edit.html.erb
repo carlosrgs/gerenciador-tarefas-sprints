@@ -1,0 +1,12 @@
+<div style="display: flex; justify-content: center; align-items: center; min-height: 70vh;">
+  <div class="form-container" style="width: 100%;">
+    <h1 style="text-align: center; margin-bottom: 2rem;">Editando Sprint</h1>
+
+    <%= render "form", sprint: @sprint %>
+
+    <div style="text-align: center; margin-top: 1.5rem; display: flex; justify-content: center; gap: 1rem;">
+      <%= link_to "Ver Sprint", @sprint, class: "btn btn-secondary" %>
+      <%= link_to "Voltar para Sprints", sprints_path, class: "btn btn-secondary" %>
+    </div>
+  </div>
+</div>

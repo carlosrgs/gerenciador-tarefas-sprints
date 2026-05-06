@@ -1,0 +1,33 @@
+<%= form_with(model: sprint) do |form| %>
+  <% if sprint.errors.any? %>
+    <div class="alert">
+      <h4><%= pluralize(sprint.errors.count, "erro") %> impediram esta sprint de ser salva:</h4>
+      <ul>
+        <% sprint.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name, "Nome da Sprint", class: "form-label" %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Ex: Sprint 1 - Autenticação" %>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+    <div class="form-group">
+      <%= form.label :start_date, "Data de Início", class: "form-label" %>
+      <%= form.date_field :start_date, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :end_date, "Data de Fim", class: "form-label" %>
+      <%= form.date_field :end_date, class: "form-control" %>
+    </div>
+  </div>
+
+  <div style="margin-top: 1.5rem;">
+    <%= form.submit "Salvar Sprint", class: "btn btn-primary", style: "width: 100%;" %>
+  </div>
+<% end %>
