@@ -66,5 +66,3 @@ group :test do
 end
 
 gem "devise"
-
-gem "pg"
